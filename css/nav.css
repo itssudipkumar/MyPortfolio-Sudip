@@ -1,0 +1,76 @@
+/* ═══════════════════════════════
+   NAV.CSS
+═══════════════════════════════ */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 200;
+  padding: 0 64px; height: 68px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(36px) saturate(180%);
+  border-bottom: 1px solid var(--gb);
+  transition: background 0.45s, border-color 0.45s;
+}
+
+.nav-logo {
+  font-family: var(--font-display); font-size: 2rem;
+  letter-spacing: 0.1em; text-decoration: none;
+  background: var(--grad); background-size: 200% 200%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 5s ease infinite;
+}
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.nav-links { display: flex; gap: 36px; }
+.nav-links a {
+  font-size: 0.78rem; color: var(--text-sub); font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  border-radius: 99px; transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--p1); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-end { display: flex; align-items: center; gap: 14px; }
+
+/* Theme toggle */
+.theme-tog {
+  width: 56px; height: 30px; border-radius: 99px;
+  background: var(--tog-bg); border: 1.5px solid var(--tog-b);
+  cursor: pointer; position: relative; flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.tog-knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; box-shadow: 0 2px 8px rgba(124,58,237,0.5);
+}
+[data-theme="light"] .tog-knob { transform: translateX(26px); }
+
+/* Hire btn */
+.hire-btn {
+  padding: 10px 24px; border-radius: 99px;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  color: #fff; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 22px rgba(124,58,237,0.35);
+  transition: box-shadow 0.3s, transform 0.2s;
+  cursor: pointer; font-family: var(--font-body);
+}
+.hire-btn:hover { box-shadow: 0 0 40px rgba(124,58,237,0.55); transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+}

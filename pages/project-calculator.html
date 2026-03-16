@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — SUDIP</title>
+<link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/sections.css">
+<link rel="stylesheet" href="../css/modal.css">
+<style>
+.project-detail{padding:130px 64px 80px;position:relative;z-index:2;max-width:900px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:var(--p1);letter-spacing:.06em;text-transform:uppercase;margin-bottom:30px;text-decoration:none;transition:gap .3s;}
+.back-link:hover{gap:12px;}
+.project-detail-title{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5.5rem);letter-spacing:.06em;line-height:.92;margin-bottom:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.project-meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+.project-detail-body{font-size:1.08rem;color:var(--text-mid);line-height:1.95;font-weight:400;}
+.project-detail-body h3{font-size:1.3rem;font-weight:800;color:var(--text-main);margin:32px 0 12px;}
+.project-detail-body p{margin-bottom:16px;}
+.project-detail-body ul{margin:12px 0 20px 20px;}
+.project-detail-body ul li{margin-bottom:8px;}
+.project-detail-body strong{color:var(--text-main);font-weight:700;}
+.project-thumb-full{width:100%;height:280px;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:44px;display:flex;align-items:center;justify-content:center;position:relative;}
+.project-thumb-full-label{font-family:var(--font-display);font-size:8rem;letter-spacing:.08em;opacity:.18;color:#fff;position:relative;z-index:2;}
+@media(max-width:768px){.project-detail{padding:100px 22px 60px;}}
+</style>
+</head>
+<body>
+<div class="bg-fixed"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
+<div class="grain"></div>
+<nav>
+  <a href="../index.html" class="nav-logo">SUDIP</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <button class="theme-tog" aria-label="Toggle theme"><div class="tog-knob">🌙</div></button>
+    <button class="hire-btn open-hire">Hire Me</button>
+  </div>
+</nav>
+<div class="project-detail">
+  <a href="projects.html" class="back-link rv">← All Projects</a>
+  <div class="rv">
+    <div class="project-thumb-full" style="background:linear-gradient(135deg,#0a1840,#1e3a6e,#0c2040);">
+      <div class="project-thumb-full-label">WEB</div>
+    </div>
+    <h1 class="project-detail-title">Project Details</h1>
+    <div class="project-meta-row"><span class="project-tag">HTML5</span><span class="project-tag">CSS3</span><span class="project-tag">JavaScript</span></div>
+  </div>
+  <div class="project-detail-body rv">
+    <h3>Project Overview</h3>
+    <p>This is a detailed project page. Update this content with your specific project description.</p>
+    <h3>Key Features</h3>
+    <ul>
+      <li>Feature one of the project</li>
+      <li>Feature two of the project</li>
+      <li>Feature three of the project</li>
+    </ul>
+    <h3>What I Learned</h3>
+    <p>Describe what you learned and how this project improved your skills.</p>
+  </div>
+</div>
+<div id="hireModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <div class="modal-head"><div class="modal-title">HIRE ME</div><div class="modal-sub">Fill in your details and I'll get back within 24 hours.</div></div>
+    <form class="hire-form">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John" required></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="john@company.com" required></div>
+      <div class="form-group"><label class="form-label">Company</label><input class="form-input" type="text" placeholder="Your company"></div>
+      <div class="form-group">
+        <label class="form-label">Opportunity Type</label>
+        <select class="form-select form-input"><option>Software Development Internship</option><option>Part-time Role</option><option>Full-time Role</option><option>Freelance</option><option>Other</option></select>
+      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea form-input" placeholder="Tell me about the opportunity..." required></textarea></div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+    <div class="modal-success"><div class="success-icon">🎉</div><div class="success-title">SENT!</div><div class="success-msg">I'll reply within 24 hours.</div></div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

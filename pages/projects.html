@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — SUDIP</title>
+<link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/sections.css">
+<link rel="stylesheet" href="../css/modal.css">
+<style>
+  .projects-hero {
+    padding: 140px 64px 60px;
+    position: relative; z-index: 2;
+  }
+  .project-page-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    position: relative; z-index: 2; padding: 0 64px 100px;
+  }
+  .project-card-lg {
+    border-radius: var(--radius-lg); overflow: hidden;
+    background: var(--glass); border: 1px solid var(--gb);
+    backdrop-filter: blur(28px) saturate(160%);
+    transition: var(--transition);
+    text-decoration: none; color: inherit; display: block;
+  }
+  .project-card-lg:hover {
+    transform: translateY(-8px); border-color: rgba(124,58,237,0.3);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+  }
+  .project-card-lg .project-thumb { height: 160px; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; font-weight: 700; color: var(--p1);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 30px; text-decoration: none;
+    transition: gap 0.3s;
+  }
+  .back-link:hover { gap: 12px; }
+  @media(max-width: 900px) {
+    .project-page-grid { grid-template-columns: 1fr 1fr; padding: 0 22px 80px; }
+    .projects-hero { padding: 110px 22px 40px; }
+  }
+  @media(max-width: 600px) {
+    .project-page-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-fixed">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="orb o3"></div><div class="orb o4"></div>
+</div>
+<div class="grain"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SUDIP</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <button class="theme-tog" aria-label="Toggle theme"><div class="tog-knob">🌙</div></button>
+    <button class="hire-btn open-hire">Hire Me</button>
+  </div>
+</nav>
+
+<div class="projects-hero rv">
+  <a href="../index.html" class="back-link">← Back Home</a>
+  <div class="s-eyebrow"><span class="s-num">ALL PROJECTS</span><div class="s-divline"></div></div>
+  <h1 class="s-tit">Everything I've <em>Built</em></h1>
+</div>
+
+<div class="project-page-grid">
+  <a href="project-inventory.html" class="project-card-lg rv">
+    <div class="project-thumb"><div class="project-bg gr1"></div><div class="project-big">SQL</div><div class="project-badge">01 · Oracle DB</div><span class="project-ext">↗</span></div>
+    <div class="project-body">
+      <div class="project-title">Inventory Management System</div>
+      <div class="project-desc">Full inventory system with SQL and Oracle — product tracking, stock automation, query optimisation.</div>
+      <div class="project-stack"><span class="project-tag">SQL</span><span class="project-tag">Oracle DB</span><span class="project-tag">Query Optimisation</span></div>
+    </div>
+  </a>
+  <a href="project-portfolio.html" class="project-card-lg rv">
+    <div class="project-thumb"><div class="project-bg gr2"></div><div class="project-big">WEB</div><div class="project-badge">02 · HTML/CSS/JS</div><span class="project-ext">↗</span></div>
+    <div class="project-body">
+      <div class="project-title">Personal Portfolio Website</div>
+      <div class="project-desc">Responsive portfolio with HTML, CSS, JS — showcasing academic projects with cross-device compatibility.</div>
+      <div class="project-stack"><span class="project-tag">HTML5</span><span class="project-tag">CSS3</span><span class="project-tag">JavaScript</span></div>
+    </div>
+  </a>
+  <a href="project-calculator.html" class="project-card-lg rv">
+    <div class="project-thumb"><div class="project-bg gr3"></div><div class="project-big">C++</div><div class="project-badge">03 · C++</div><span class="project-ext">↗</span></div>
+    <div class="project-body">
+      <div class="project-title">C++ Calculator Application</div>
+      <div class="project-desc">Calculator with full arithmetic operations — functions, logic structures, and debugging practice.</div>
+      <div class="project-stack"><span class="project-tag">C++</span><span class="project-tag">Functions</span><span class="project-tag">Debugging</span></div>
+    </div>
+  </a>
+  <a href="project-nosql.html" class="project-card-lg rv">
+    <div class="project-thumb"><div class="project-bg gr4"></div><div class="project-big">NoSQL</div><div class="project-badge">04 · MongoDB</div><span class="project-ext">↗</span></div>
+    <div class="project-body">
+      <div class="project-title">Non-Relational Database Project</div>
+      <div class="project-desc">MongoDB prototype with collections, unstructured queries, and relational vs NoSQL comparison.</div>
+      <div class="project-stack"><span class="project-tag">MongoDB</span><span class="project-tag">NoSQL</span><span class="project-tag">Data Modelling</span></div>
+    </div>
+  </a>
+  <a href="project-agile.html" class="project-card-lg rv">
+    <div class="project-thumb"><div class="project-bg gr5"></div><div class="project-big">AGILE</div><div class="project-badge">05 · Project Mgmt</div><span class="project-ext">↗</span></div>
+    <div class="project-body">
+      <div class="project-title">IT Project Management Coursework</div>
+      <div class="project-desc">Project briefs, WBS, scope statements, and Agile sprint planning for IT case studies.</div>
+      <div class="project-stack"><span class="project-tag">Agile</span><span class="project-tag">WBS</span><span class="project-tag">Scoping</span></div>
+    </div>
+  </a>
+</div>
+
+<!-- HIRE MODAL -->
+<div id="hireModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <div class="modal-head">
+      <div class="modal-title">HIRE ME</div>
+      <div class="modal-sub">Fill in your details and I'll get back to you within 24 hours.</div>
+    </div>
+    <form class="hire-form">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John" required></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="john@company.com" required></div>
+      <div class="form-group"><label class="form-label">Company / Organisation</label><input class="form-input" type="text" placeholder="Your company name"></div>
+      <div class="form-group">
+        <label class="form-label">Type of Opportunity</label>
+        <select class="form-select form-input">
+          <option value="">Select...</option>
+          <option>Software Development Internship</option>
+          <option>Part-time Role</option>
+          <option>Full-time Role</option>
+          <option>Freelance Project</option>
+          <option>Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea form-input" placeholder="Tell me about the role or project..." required></textarea></div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+    <div class="modal-success">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">MESSAGE SENT!</div>
+      <div class="success-msg">Thanks for reaching out! I'll be in touch within 24 hours at kumarsudip2023@gmail.com</div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
