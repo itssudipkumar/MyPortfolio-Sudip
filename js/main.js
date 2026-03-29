@@ -49,6 +49,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.3 });
   document.querySelectorAll('.hero-side-card, .h-card').forEach(c => barObs.observe(c));
 
+  /* ── ANIMATED STAT COUNTERS ── */
+  const animateCounter = (element, target) => {
+    const duration = 2000;
+    const increment = target / (duration / 50);
+    let current = 0;
+    const counter = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + '+';
+        clearInterval(counter);
+      } else {
+        element.textContent = Math.floor(current) + '+';
+      }
+    }, 50);
+  };
+
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-count').forEach(stat => {
+          const target = parseInt(stat.dataset.target);
+          if (target) animateCounter(stat, target);
+        });
+        countObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.hero-side-card').forEach(c => countObs.observe(c));
+
   /* ── SKILLS CAROUSEL ── */
   const track = document.querySelector('.skills-track');
   const slides = document.querySelectorAll('.skill-slide');
