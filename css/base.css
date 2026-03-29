@@ -23,11 +23,51 @@ img { max-width: 100%; display: block; }
 
 /* ── BG SYSTEM ── */
 .bg-fixed { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+/* Starfield for dark mode */
+[data-theme="dark"] .bg-fixed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60% 70%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50% 50%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80% 10%, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90% 60%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 30% 80%, #eee, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 10% 10%, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40% 40%, #ddd, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 70% 20%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 15% 50%, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 85% 85%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 45% 90%, #ddd, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 65% 35%, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 25% 60%, #eee, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 95% 35%, #fff, rgba(0,0,0,0));
+  background-size: 200% 200%, 150% 150%, 180% 180%, 160% 160%, 170% 170%, 
+                   190% 190%, 210% 210%, 155% 155%, 185% 185%, 165% 165%,
+                   195% 195%, 175% 175%, 145% 145%, 140% 140%, 200% 200%;
+  background-position: 
+    0% 0%, 40% 60%, 130% 270%, 70% 100%, 150% 140%,
+    90% 10%, -10% -10%, 130% 80%, 0% 0%, 40% 40%,
+    130% 200%, 90% 130%, 70% 70%, 0% 0%, 40% 40%;
+  pointer-events: none;
+  z-index: 1;
+  animation: twinkling 4s ease-in-out infinite;
+}
+
+@keyframes twinkling {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 .orb {
   position: absolute; border-radius: 50%;
   filter: blur(120px);
   animation: orbDrift 16s ease-in-out infinite;
   transition: background 0.45s;
+  z-index: 2;
 }
 .o1 { width: 700px; height: 700px; background: var(--blob1); top: -200px; left: -100px; }
 .o2 { width: 500px; height: 500px; background: var(--blob2); top: 80px; right: -100px; animation-delay: -6s; }
@@ -105,7 +145,7 @@ section { padding: clamp(60px, 10vw, 110px) clamp(16px, 5vw, 64px); position: re
 .btn-ghost:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ── REVEAL ── */
-.rv { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.rv { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease, transform 0.8s ease; }
 .rv.on { opacity: 1; transform: translateY(0); }
 
 /* ── SCROLLBAR ── */

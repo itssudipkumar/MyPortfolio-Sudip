@@ -261,11 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── NAV ACTIVE ── */
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinksAnchors = document.querySelectorAll('.nav-links a');
   const scrollObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        navLinks.forEach(a => {
+        navLinksAnchors.forEach(a => {
           a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--p1)' : '';
         });
       }
