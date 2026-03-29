@@ -67,6 +67,12 @@
   right: 0;
   background: linear-gradient(270deg, var(--bg) 0%, transparent 100%);
 }
+@media (max-width: 768px) {
+  .skills-viewport::before,
+  .skills-viewport::after {
+    width: 60px;
+  }
+}
 
 .skills-track {
   display: flex; gap: 24px;
