@@ -3,23 +3,23 @@
 ═══════════════════════════════ */
 
 /* ── ABOUT ── */
-.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 8vw, 70px); align-items: start; }
 .about-text p {
   font-size: 1.1rem; color: var(--text-mid);
-  line-height: 1.95; margin-bottom: 22px; font-weight: 400;
+  line-height: 1.95; margin-bottom: clamp(16px, 3vw, 22px); font-weight: 400;
 }
 .about-text p strong { color: var(--text-main); font-weight: 800; }
-.about-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 32px; }
+.about-chips { display: flex; flex-wrap: wrap; gap: clamp(6px, 2vw, 9px); margin-top: clamp(20px, 4vw, 32px); }
 .chip {
-  padding: 9px 18px; border-radius: 12px; font-size: 0.8rem;
+  padding: clamp(6px, 1.5vw, 9px) clamp(12px, 3vw, 18px); border-radius: 12px; font-size: clamp(0.7rem, 2vw, 0.8rem);
   font-weight: 600; background: var(--glass); border: 1px solid var(--gb);
   backdrop-filter: blur(16px); color: var(--text-mid);
   cursor: default; transition: var(--transition);
 }
 .chip:hover { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.3); color: var(--p1); }
-.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(8px, 2vw, 12px); }
 .about-stat {
-  border-radius: var(--radius-md); padding: 26px 22px;
+  border-radius: var(--radius-md); padding: clamp(18px, 4vw, 26px) clamp(16px, 3vw, 22px);
   background: var(--glass); border: 1px solid var(--gb);
   backdrop-filter: blur(28px); text-align: center;
   transition: var(--transition);
@@ -75,7 +75,7 @@
 }
 
 .skills-track {
-  display: flex; gap: 24px;
+  display: flex; gap: clamp(12px, 3vw, 24px);
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 .skill-slide {
@@ -147,7 +147,7 @@
 .skill-dot.active { width: 24px; background: var(--p1); }
 
 /* ── PROJECTS GRID ── */
-.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(8px, 3vw, 14px); }
 .project-card {
   border-radius: var(--radius-lg); overflow: hidden;
   background: var(--glass); border: 1px solid var(--gb);
@@ -205,15 +205,15 @@
 /* ── BUSINESS CARD ── */
 .business-card-wrap {
   display: flex; justify-content: center;
-  padding: 60px 64px; position: relative; z-index: 2;
+  padding: clamp(20px, 10vw, 60px) clamp(12px, 5vw, 64px); position: relative; z-index: 2;
   overflow: hidden;
 }
 .business-card {
-  width: 100%; max-width: 480px; border-radius: 20px; padding: 28px 30px;
+  width: 100%; max-width: 480px; border-radius: 20px; padding: clamp(16px, 4vw, 28px) clamp(14px, 4vw, 30px);
   background: var(--glass2); border: 1px solid var(--gb2);
   backdrop-filter: blur(44px) saturate(200%);
   box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255,255,255,0.08);
-  display: flex; align-items: center; gap: 24px;
+  display: flex; align-items: center; gap: clamp(16px, 4vw, 24px);
   position: relative; overflow: hidden;
   transition: var(--transition);
 }
@@ -451,7 +451,7 @@
 
 /* ── CONTACT BOX ── */
 .contact-box {
-  border-radius: var(--radius-xl); padding: 70px;
+  border-radius: var(--radius-xl); padding: clamp(24px, 8vw, 70px);
   background: var(--glass2); border: 1px solid var(--gb2);
   backdrop-filter: blur(44px) saturate(200%);
   box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255,255,255,0.07);
@@ -472,9 +472,9 @@
 }
 .contact-big span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .contact-sub { font-size: 1rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 44px; max-width: 540px; font-weight: 400; }
-.contact-links-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.contact-links-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(8px, 2vw, 12px); }
 .contact-link {
-  border-radius: 16px; padding: 22px 14px; text-align: center;
+  border-radius: 16px; padding: clamp(16px, 3vw, 22px) clamp(10px, 2vw, 14px); text-align: center;
   background: rgba(255,255,255,0.06); border: 1px solid var(--gb2);
   backdrop-filter: blur(20px);
   transition: var(--transition); color: var(--text-main);
@@ -511,26 +511,11 @@ footer {
   .proj-grid { grid-template-columns: 1fr; }
   .contact-links-grid { grid-template-columns: 1fr 1fr; }
   .skill-slide { flex: 0 0 calc(50% - 12px); }
-  .biz-card { width: 100%; max-width: 480px; }
 }
-@media (max-width: 768px) {
-  .contact-box { padding: 30px 20px; }
-  .contact-links-grid { grid-template-columns: 1fr 1fr; }
-  footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
-  .business-card-wrap { padding: 30px 16px; }
-  .business-card { padding: 20px 16px; gap: 16px; flex-wrap: wrap; }
-  .business-divider { display: none; }
-  .business-info { flex: 1; }
-  .business-name { font-size: 1.1rem; }
-  .skill-slide { flex: 0 0 calc(85% - 12px); }
-}
-@media (max-width: 480px) {
-  .business-card-wrap { padding: 20px 12px; }
-  .business-card { flex-direction: column; text-align: center; padding: 16px 12px; }
-  .contact-box { padding: 24px 16px; }
+@media (max-width: 640px) {
   .contact-links-grid { grid-template-columns: 1fr; }
-  .contact-big { font-size: clamp(1.8rem, 4vw, 3rem); }
-  .contact-sub { font-size: 0.9rem; margin-bottom: 30px; }
+  .business-divider { display: none; }
+  .skill-slide { flex: 0 0 calc(85% - 12px); }
 }
 
 /* ── ANIMATIONS ── */
