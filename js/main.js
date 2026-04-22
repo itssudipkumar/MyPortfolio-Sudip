@@ -8,16 +8,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
+    let lastScrollY = window.scrollY;
+
+    const setNavState = (isOpen) => {
+      navToggle.classList.toggle('active', isOpen);
+      navLinks.classList.toggle('mobile-active', isOpen);
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('nav-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) document.body.classList.remove('nav-scroll-down');
+    };
+
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('mobile-active');
+      const willOpen = !navLinks.classList.contains('mobile-active');
+      setNavState(willOpen);
     });
+
     // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('mobile-active');
+        setNavState(false);
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('mobile-active')) return;
+      const clickInsideNav = e.target.closest('nav');
+      if (!clickInsideNav) setNavState(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        setNavState(false);
+        document.body.classList.remove('nav-scroll-down');
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 768) return;
+      if (navLinks.classList.contains('mobile-active')) return;
+
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY;
+
+      if (currentY < 20 || delta < -4) {
+        document.body.classList.remove('nav-scroll-down');
+      } else if (delta > 4) {
+        document.body.classList.add('nav-scroll-down');
+      }
+
+      lastScrollY = currentY;
     });
   }
 

@@ -48,7 +48,7 @@
   --text-main: #f8fafc;
   --text-sub: rgba(248,250,252,0.6);
   --text-mid: rgba(248,250,252,0.8);
-  --nav-bg: rgba(15,23,42,0.8);
+  --nav-bg: rgba(15,23,42,0.95);
   --footer-bg: rgba(15,23,42,0.9);
   --card-shadow: 0 24px 80px rgba(0,0,0,0.4);
   --blob1: rgba(99,102,241,0.08);
@@ -74,7 +74,7 @@
   --text-main: #0f172a;
   --text-sub: rgba(15,23,42,0.6);
   --text-mid: rgba(15,23,42,0.8);
-  --nav-bg: rgba(255,255,255,0.9);
+  --nav-bg: rgba(255,255,255,0.97);
   --footer-bg: rgba(248,250,252,0.95);
   --card-shadow: 0 20px 60px rgba(99,102,241,0.08);
   --blob1: rgba(99,102,241,0.06);

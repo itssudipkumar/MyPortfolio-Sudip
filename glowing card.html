@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glowing Animated Card</title>
+    <style>
+        :root {
+            --bg: #0b1020;
+            --card: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 20% 20%, #111a33, var(--bg) 60%);
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            color: var(--text);
+        }
+
+        .card {
+            position: relative;
+            width: min(90vw, 360px);
+            padding: 2rem;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #141b32, var(--card));
+            overflow: hidden;
+            isolation: isolate;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-6px); }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: conic-gradient(
+                from 0deg,
+                #22d3ee,
+                #8b5cf6,
+                #ec4899,
+                #22d3ee
+            );
+            z-index: -2;
+            animation: spin 4s linear infinite;
+            filter: blur(10px);
+            opacity: 0.9;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: linear-gradient(180deg, #12192f, #0f1528);
+            z-index: -1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #67e8f9;
+            background: rgba(34, 211, 238, 0.15);
+            border: 1px solid rgba(34, 211, 238, 0.35);
+        }
+
+        h2 {
+            margin: 0.9rem 0 0.5rem;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <article class="card">
+        <span class="badge">Featured</span>
+        <h2>Glowing Card</h2>
+        <p>A sleek animated border with soft neon glow and smooth hover lift.</p>
+    </article>
+</body>
+</html>
