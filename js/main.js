@@ -276,13 +276,38 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   if (form) {
-    form.addEventListener('submit', e => {
+    const formEndpoint = 'https://formspree.io/f/mlgaqego';
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       // Simulate send
       const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      setTimeout(() => {
+      const originalText = btn ? btn.textContent : 'Send Message →';
+      if (btn) {
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+      }
+
+      const [firstName, lastName, email, company, opportunity, message] = form.querySelectorAll('input, select, textarea');
+      const payload = new FormData();
+      payload.append('firstName', firstName?.value?.trim() || '');
+      payload.append('lastName', lastName?.value?.trim() || '');
+      payload.append('email', email?.value?.trim() || '');
+      payload.append('company', company?.value?.trim() || '');
+      payload.append('opportunity', opportunity?.value?.trim() || '');
+      payload.append('message', message?.value?.trim() || '');
+
+      try {
+        const response = await fetch(formEndpoint, {
+          method: 'POST',
+          body: payload,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) {
+          throw new Error('Formspree request failed');
+        }
+
         form.style.display = 'none';
         if (successEl) successEl.classList.add('show');
         setTimeout(() => {
@@ -291,11 +316,19 @@ document.addEventListener('DOMContentLoaded', () => {
             form.style.display = '';
             form.reset();
             if (successEl) successEl.classList.remove('show');
-            btn.textContent = 'Send Message →';
-            btn.disabled = false;
+            if (btn) {
+              btn.textContent = originalText;
+              btn.disabled = false;
+            }
           }, 600);
         }, 2800);
-      }, 1200);
+      } catch (error) {
+        if (btn) {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }
+        alert('Sorry, something went wrong sending your message. Please try again.');
+      }
     });
   }
 
