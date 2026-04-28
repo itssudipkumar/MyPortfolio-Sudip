@@ -2,10 +2,10 @@
 
 <!-- HEADER BANNER -->
               ```
-              ███████╗ ██╗   ██╗ ██████╗  ██╗ ██████╗
-              ██╔════╝ ██║   ██║ ██╔══██╗ ██║ ██╔══██╗
-              ███████╗ ██║   ██║ ██║  ██║ ██║ ██████╔╝
-              ╚════██║ ██║   ██║ ██║  ██║ ██║ ██╔═══╝
+                ███████╗ ██╗   ██╗ ██████╗  ██╗ ██████╗
+                ██╔════╝ ██║   ██║ ██╔══██╗ ██║ ██╔══██╗
+                ███████╗ ██║   ██║ ██║  ██║ ██║ ██████╔╝
+                ╚════██║ ██║   ██║ ██║  ██║ ██║ ██╔═══╝
               ███████║ ╚██████╔╝ ██████╔╝ ██║ ██║
               ╚══════╝  ╚═════╝  ╚═════╝  ╚═╝ ╚═╝
               ```
@@ -298,6 +298,8 @@ Once you have your GIF, add this after the "Live Preview" section:
 
 ---
 
+## 🚀 Deploying to GitHub Pages
+
 ```bash
 # 1. Initialise git and push to GitHub
 git init
@@ -314,11 +316,11 @@ git push -u origin main
 #    https://itssudipkumar.github.io/itssudip/
 ```
 
-### Add custom domain `itssudip.com`
+### Add Custom Domain
 ```
 GitHub → Settings → Pages → Custom domain → type: itssudip.com → Save
 
-At your domain registrar add a CNAME record:
+At your domain registrar, add a CNAME record:
   Host: www  →  Points to: YOUR_USERNAME.github.io
 ```
 
@@ -333,7 +335,7 @@ The **"Hire Me" modal** on every page is wired to **[Formspree](https://formspre
 2. Clicks "Send Message →"
 3. JavaScript intercepts `submit` event and POSTs to Formspree API
 4. Success animation plays while email is being delivered
-5. Email forwarded to: `kumarsudip2023@gmail.com`
+5. Email forwarded to: `sudip@itssudip.com`
 6. Modal auto-closes after 3 seconds
 
 ### Form Validation
@@ -345,9 +347,9 @@ The **"Hire Me" modal** on every page is wired to **[Formspree](https://formspre
 2. Create a new form → get your form ID (e.g., `f/abc123xyz`)
 3. Open `js/main.js` and find line ~279:
    ```javascript
-   const formEndpoint = 'https://formspree.io/f/mlgaqego';
+   const formEndpoint = 'https://formspree.io/f/h***********';
    ```
-4. Replace `mlgaqego` with your form ID
+4. Replace `h******` with your form ID
 5. Test by clicking "Hire Me" and submitting the form
 
 **No backend server needed** — Formspree handles everything! ✨
