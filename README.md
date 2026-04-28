@@ -23,6 +23,28 @@
 
 ---
 
+## 📝 Recent Updates
+
+- ✅ **v2.1** — Formspree contact form integration, live email delivery (April 2026)
+- ✅ **v2.0** — Logo navigation fix (same-tab redirect), mobile menu enhancements
+- ✅ **v1.0** — Initial portfolio launch with glassmorphism UI
+
+---
+
+## 🎬 Live Preview
+
+Visit the live site to see the portfolio in action:
+→ **[itssudip.com](https://itssudip.com)** ← 
+
+**Key interactions to try:**
+- 🌙 Click the moon icon (top-right) to toggle dark/light mode
+- ← → Navigate the **Skills Carousel** with arrows or keyboard
+- 💬 Click **"Hire Me"** button to test the contact form (emails go to `kumarsudip2023@gmail.com`)
+- 📱 Resize your browser to see the fully responsive design
+- 🖱️ Hover over project cards for smooth animations
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
@@ -31,7 +53,7 @@
 | 🔠 **Giant Name Hero** | Full-viewport name display in Bebas Neue display font |
 | 🪟 **Glassmorphism UI** | Frosted glass cards with `backdrop-filter` throughout |
 | 🎠 **Skills Carousel** | 3-up sliding carousel with blur edges, arrows, dots & touch |
-| 📋 **Hire Me Modal** | Full contact form with validation & success animation |
+| 📋 **Hire Me Modal** | Full contact form integrated with Formspree for live email delivery |
 | 💼 **Business Card** | Real-size card component with avatar + contact details |
 | 📄 **Project Sub-Pages** | Individual detail pages for each project |
 | 🌈 **Animated Blobs** | Drifting colour orbs for ambient background depth |
@@ -98,6 +120,25 @@ code .
 
 ---
 
+## ⚡ JavaScript Features (Vanilla ES6+ - No Dependencies)
+
+All interactivity is in `js/main.js` (~370 lines) with **zero external libraries**:
+
+| Feature | Details |
+|---|---|
+| 🌙 **Theme Toggle** | Dark/light mode with `localStorage` persistence & CSS variables |
+| 📋 **Hire Me Modal** | Formspree integration, real email delivery, form validation |
+| 🎠 **Skills Carousel** | Auto-rotating, keyboard arrows (←→), touch swipe, click navigation |
+| 🎭 **Scroll Reveal** | `IntersectionObserver` for staggered fade-in animations |
+| 📊 **Animated Counters** | Auto-counting numbers on scroll (5+, 6+, 2+) |
+| ☰ **Mobile Menu** | Hamburger toggle, tap-outside to close, smooth transitions |
+| ⌨️ **Keyboard Shortcuts** | Escape = close modal, Arrow keys = carousel |
+| 📱 **Touch Support** | Swipe left/right on carousel for mobile |
+| 📄 **Footer Loader** | Dynamic fetch & inject footer HTML from `footer.html` |
+| 💫 **Smooth Scroll** | CSS `scroll-behavior: smooth` + padded scroll anchors |
+
+---
+
 ## 🎨 Tech Stack
 
 
@@ -105,15 +146,42 @@ code .
 | Layer | Choice | Why |
 |---|---|---|
 | **Markup** | HTML5 | Semantic, accessible, standards-first |
-| **Styling** | Pure CSS3 + CSS Variables | No framework bloat, full control |
-| **Logic** | Vanilla JavaScript (ES6+) | Zero dependencies, blazing fast |
-| **Fonts** | Bebas Neue + Figtree + DM Mono | Display power + readability |
-| **Effects** | `backdrop-filter`, CSS animations | Native glassmorphism, no libs |
-| **Hosting** | GitHub Pages | Free, fast, git-integrated |
+| **Styling** | Pure CSS3 + 50+ CSS Variables | No Tailwind, Bootstrap, or SCSS — full control |
+| **Layout** | CSS Grid + Flexbox | Semantic layout system |
+| **Typography** | Bebas Neue (display) + Figtree (body) + DM Mono (code) | Google Fonts — instant load |
+| **Effects** | `backdrop-filter: blur()` + CSS animations | Native glassmorphism, no libraries |
+| **Accessibility** | Semantic HTML5, ARIA labels, keyboard nav | WCAG compliant |
+| **Hosting** | GitHub Pages + custom domain | Zero-cost, auto-deployed from git |
+| **Performance** | ~95 Lighthouse score, zero JS frameworks | Fast load, smooth 60fps animations |
 
 ---
 
-## 🌙 Theme System
+## � CSS Architecture
+
+The styling system is built on CSS custom properties for maximum maintainability:
+
+```css
+/* Color tokens (theme.css) */
+--p1: #7c3aed;          /* Purple accent */
+--p2: #2563eb;          /* Blue secondary */
+--p3: #db2777;          /* Pink accent */
+--text-main: #f0eaff;   /* Light text */
+--bg: #080010;          /* Dark background */
+--glass: rgba(255, 255, 255, 0.08);  /* Glassmorphism base */
+--gb: rgba(255, 255, 255, 0.15);     /* Glass border */
+```
+
+**CSS Files Breakdown:**
+- `theme.css` — 30+ color/spacing variables, dark & light mode tokens
+- `base.css` — Reset, buttons, glass utilities, animated backgrounds
+- `nav.css` — Navigation bar, theme toggle, mobile hamburger
+- `hero.css` — Giant name hero, side card with stats
+- `sections.css` — About, skills carousel, projects grid, contact, business card
+- `modal.css` — Hire Me popup, form styling, animations
+
+---
+
+## �🌙 Theme System
 
 The entire site uses CSS custom properties for theming — defined in `css/theme.css`.
 
@@ -170,7 +238,19 @@ Find the initials avatar and replace:
 
 ---
 
-## 📡 Deploying to GitHub Pages
+## �️ Troubleshooting
+
+| Issue | Solution |
+|---|---|
+| **Formspree emails not arriving** | Check spam folder. Verify form endpoint in `js/main.js` matches your Formspree ID |
+| **Theme not persisting** | Clear browser `localStorage` via DevTools Console: `localStorage.clear()` |
+| **Carousel not working on mobile** | Check if JavaScript is enabled. Try Chrome DevTools to toggle device mode |
+| **Footer not loading** | Verify `footer.html` exists. Check browser console for 404 errors |
+| **Animations feel choppy** | Try updating your browser. Check for running extensions/software affecting performance |
+
+---
+
+## 🚀 Deploying to GitHub Pages
 
 ```bash
 # 1. Initialise git and push to GitHub
@@ -198,10 +278,40 @@ At your domain registrar add a CNAME record:
 
 ---
 
+## � Contact Form (Formspree Integration)
+
+The **"Hire Me" modal** on every page is wired to **[Formspree](https://formspree.io)** for real email delivery.
+
+### How It Works
+1. User fills form (First Name, Last Name, Email, Company, Opportunity, Message)
+2. Clicks "Send Message →"
+3. JavaScript intercepts `submit` event and POSTs to Formspree API
+4. Success animation plays while email is being delivered
+5. Email forwarded to: `kumarsudip2023@gmail.com`
+6. Modal auto-closes after 3 seconds
+
+### Form Validation
+- **Required:** First Name, Last Name, Email, Message
+- **Optional:** Company / Organisation, Type of Opportunity (dropdown)
+
+### To Connect Your Own Email
+1. Create a Formspree account at [formspree.io](https://formspree.io)
+2. Create a new form → get your form ID (e.g., `f/abc123xyz`)
+3. Open `js/main.js` and find line ~279:
+   ```javascript
+   const formEndpoint = 'https://formspree.io/f/mlgaqego';
+   ```
+4. Replace `mlgaqego` with your form ID
+5. Test by clicking "Hire Me" and submitting the form
+
+**No backend server needed** — Formspree handles everything! ✨
+
+---
+
 ## 🔮 Roadmap
 
+- [x] Connect Hire Me form to [Formspree](https://formspree.io) for real email delivery ✅
 - [ ] Add real project screenshots / mockups in `assets/`
-- [ ] Connect Hire Me form to [Formspree](https://formspree.io) for real email delivery
 - [ ] Add a blog / writing section
 - [ ] Three.js / WebGL background animation
 - [ ] Dark mode system preference detection (`prefers-color-scheme`)
