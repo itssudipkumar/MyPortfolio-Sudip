@@ -1,14 +1,14 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
-```
-███████╗ ██╗   ██╗ ██████╗  ██╗ ██████╗
-██╔════╝ ██║   ██║ ██╔══██╗ ██║ ██╔══██╗
-███████╗ ██║   ██║ ██║  ██║ ██║ ██████╔╝
-╚════██║ ██║   ██║ ██║  ██║ ██║ ██╔═══╝
-███████║ ╚██████╔╝ ██████╔╝ ██║ ██║
-╚══════╝  ╚═════╝  ╚═════╝  ╚═╝ ╚═╝
-```
+              ```
+              ███████╗ ██╗   ██╗ ██████╗  ██╗ ██████╗
+              ██╔════╝ ██║   ██║ ██╔══██╗ ██║ ██╔══██╗
+              ███████╗ ██║   ██║ ██║  ██║ ██║ ██████╔╝
+              ╚════██║ ██║   ██║ ██║  ██║ ██║ ██╔═══╝
+              ███████║ ╚██████╔╝ ██████╔╝ ██║ ██║
+              ╚══════╝  ╚═════╝  ╚═════╝  ╚═╝ ╚═╝
+              ```
 
 # 🌐 Personal Portfolio Website
 
@@ -36,12 +36,14 @@
 Visit the live site to see the portfolio in action:
 → **[itssudip.com](https://itssudip.com)** ← 
 
-**Key interactions to try:**
-- 🌙 Click the moon icon (top-right) to toggle dark/light mode
-- ← → Navigate the **Skills Carousel** with arrows or keyboard
-- 💬 Click **"Hire Me"** button to test the contact form (emails go to `kumarsudip2023@gmail.com`)
-- 📱 Resize your browser to see the fully responsive design
-- 🖱️ Hover over project cards for smooth animations
+**What You'll See:**
+- ✨ Glassmorphic UI with animated background orbs
+- 🌙 Click the moon icon to toggle dark/light mode
+- 📊 Animated stats and counters on scroll
+- 🎠 Interactive skills carousel (swipe or use arrows)
+- 💼 Responsive project cards with hover effects
+- 📱 Mobile-friendly design (try resizing your browser)
+- 💬 "Hire Me" button to test the contact form
 
 ---
 
@@ -250,7 +252,51 @@ Find the initials avatar and replace:
 
 ---
 
-## 🚀 Deploying to GitHub Pages
+## 🎬 Demo & Recording Your Own GIF
+
+### View Live Site
+The easiest way to see the portfolio in action:
+1. Visit **[itssudip.com](https://itssudip.com)** (live version)
+2. Or run locally: `git clone ...` and open `index.html` in your browser
+
+### Create Your Own Demo GIF
+
+**Option 1: ScreenToGif (Windows)**
+```
+1. Download: https://www.screentogif.com/
+2. Open app → click "Recorder"
+3. Record yourself:
+   - Navigate hero section
+   - Click theme toggle (moon icon)
+   - Scroll to skills carousel
+   - Use arrows to navigate carousel
+   - Click "Hire Me" button to show modal
+   - Scroll to projects section
+4. Export as .gif → Save to `assets/demo.gif`
+5. Add to README (see below)
+```
+
+**Option 2: FFmpeg (Command Line)**
+```bash
+# If you have a screen recording video
+ffmpeg -i portfolio-demo.mp4 -r 10 -s 1280x720 demo.gif
+
+# Then add to README:
+# ![Portfolio Demo](assets/demo.gif)
+```
+
+**Option 3: Online Tool**
+- Record with OBS → Upload to [ezgif.com](https://ezgif.com/)
+- Download the GIF and save to `assets/demo.gif`
+
+### Add GIF to README
+Once you have your GIF, add this after the "Live Preview" section:
+```markdown
+### Preview
+![Portfolio Demo](assets/demo.gif)
+```
+
+---
 
 ```bash
 # 1. Initialise git and push to GitHub
